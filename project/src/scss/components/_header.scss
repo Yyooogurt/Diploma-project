@@ -5,6 +5,7 @@
   padding: 40px 0;
 
   .container {
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: space-between;

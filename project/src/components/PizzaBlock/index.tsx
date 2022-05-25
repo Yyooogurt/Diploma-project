@@ -5,7 +5,7 @@ import { selectCartItemById } from '../../redux/cart/selectors';
 import { CartItem } from '../../redux/cart/types';
 import { addItem } from '../../redux/cart/slice';
 
-const typeNames = ['тонкое', 'традиционное'];
+const typeNames = ['тонке', 'традиційне'];
 
 type PizzaBlockProps = {
   id: string;
@@ -88,7 +88,7 @@ export const PizzaBlock: React.FC<PizzaBlockProps> = ({
                 fill="white"
               />
             </svg>
-            <span>Добавить</span>
+            <span>Додати</span>
             {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>

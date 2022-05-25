@@ -4,7 +4,7 @@
 @import './components/all';
 
 body {
-  background-color: $background;
+  background-color: #71d37287;
 }
 
 .wrapper {
@@ -13,7 +13,7 @@ body {
   background-color: #fff;
   margin: 50px auto;
   border-radius: 10px;
-  max-width: 1400px;
+  max-width: 665px;
 
   @media (max-width: 645px) {
     width: calc(100vw - 30px);
@@ -49,12 +49,12 @@ body {
 
   &__items {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 11px;
 
     @media (max-width: 1400px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @media (max-width: 1060px) {
@@ -62,14 +62,17 @@ body {
     }
 
     @media (max-width: 730px) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__top {
     display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    overflow: auto;
 
     @media (max-width: 1260px) {
       .categories {
@@ -317,7 +320,7 @@ body {
 
         &:last-of-type {
           b {
-            color: $orange;
+            color: #71d372;
           }
         }
       }

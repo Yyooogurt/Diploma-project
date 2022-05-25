@@ -17,12 +17,12 @@ type SortPopupProps = {
 };
 
 export const sortList: SortItem[] = [
-  { name: 'популярности (DESC)', sortProperty: SortPropertyEnum.RATING_DESC },
-  { name: 'популярности (ASC)', sortProperty: SortPropertyEnum.RATING_ASC },
-  { name: 'цене (DESC)', sortProperty: SortPropertyEnum.PRICE_DESC },
-  { name: 'цене (ASC)', sortProperty: SortPropertyEnum.PRICE_ASC },
-  { name: 'алфавиту (DESC)', sortProperty: SortPropertyEnum.TITLE_DESC },
-  { name: 'алфавиту (ASC)', sortProperty: SortPropertyEnum.TITLE_ASC },
+  { name: 'популярності ↓', sortProperty: SortPropertyEnum.RATING_DESC },
+  { name: 'популярности ↑', sortProperty: SortPropertyEnum.RATING_ASC },
+  { name: 'ціна ↓', sortProperty: SortPropertyEnum.PRICE_DESC },
+  { name: 'ціна ↑', sortProperty: SortPropertyEnum.PRICE_ASC },
+  { name: 'алфавіту ↓', sortProperty: SortPropertyEnum.TITLE_DESC },
+  { name: 'алфавіту ↑', sortProperty: SortPropertyEnum.TITLE_ASC },
 ];
 
 export const Sort: React.FC<SortPopupProps> = React.memo(({ value }) => {

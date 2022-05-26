@@ -1,13 +1,32 @@
-import React, {useState}from 'react';
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-
+import React, {useState, useEffect}from 'react';
+import { GoogleMap, LoadScript, Marker, InfoWindow,DirectionsRenderer,withScriptjs, withGoogleMap,} from '@react-google-maps/api';
 const MapContainer = () => {
   
 const [ selected, setSelected ] = useState({});
+const [ currentPosition, setCurrentPosition ] = useState({});
+const [ direction, setDirection ] = useState(null);
+const [ center, setCenter ] = useState({lat: 48.494183918654095, lng: 35.06661888513518});
+const success = position => {
+  const currentPosition = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  }
+  setCurrentPosition(currentPosition);
+  setCenter(currentPosition); 
+};
+
+const getLocation = () => {
+  navigator.geolocation.getCurrentPosition(success);
+}
+
+
+// const [ geo, setGeo ] = useState({lat: null, long: null});
+// const [ direction, setDirections ] = useState();
   const onSelect = item => {
     setSelected(item);
   }
 
+  
   const mapStyles = {        
     height: "100vh",
     width: "100%",
@@ -15,9 +34,6 @@ const [ selected, setSelected ] = useState({});
     borderRadius: "19px"
   };
   
-  const defaultCenter = {
-    lat: 48.494183918654095, lng: 35.06661888513518
-  }
   const locations = [
     { 
       name: "Location 1",
@@ -71,14 +87,86 @@ const [ selected, setSelected ] = useState({});
           }
   ];
 
+  // const getLocation = () => {
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     const newUserPos = { 
+  //       lat: position.coords.latitude,
+  //       long: position.coords.longitude,
+  //  };
+  //     setGeo(newUserPos);
+  //     console.log(newUserPos); 
+  //   });
+  
+  // }
+
+  // const getDirections = () => {
+  //   const directionsService = new GoogleMap.maps.DirectionsService();
+
+  //   const origin = geo;
+  //   const destination = selected;
+
+  //   if (origin !== null && destination !== null) {
+  //     directionsService.route(
+  //       {
+  //         origin: origin,
+  //         destination: destination,
+  //         travelMode: GoogleMap.maps.TravelMode.DRIVING
+  //       },
+  //       (result, status) => {
+  //         if (status === GoogleMap.maps.DirectionsStatus.OK) {
+  //           setDirections(result);
+  //         } else {
+  //           console.error(`error fetching directions ${result}`);
+  //         }
+  //       }
+  //     );
+  //   } else {
+  //     console.log('Please mark your destination in the map first!');
+  //   }
+  // };
+
+
+
+   const getDirection = () => {
+      const DirectionsService = new window.google.maps.DirectionsService();
+      DirectionsService.route({
+        origin: currentPosition,
+        destination: selected.location,
+        travelMode: window.google.maps.TravelMode.DRIVING,
+      }, (result, status) => {
+        if (status === window.google.maps.DirectionsStatus.OK) {
+          setDirection(result);
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      });
+    }
+  
+
+
+
   return (
-    
+    <div className="map_info">
+      <div className="map_distance">
+          <button onClick={getLocation}>Моя геолокація</button>
+          <button onClick={getDirection}>Прокласти маршруту</button>
+      </div>
+      
      <LoadScript
        googleMapsApiKey='AIzaSyAPgqAVnXgH9OhdUcQWBm-oxiodDZv8moA'>
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={13}
-          center={defaultCenter}>
+          center={center}>
+          
+            if (currentPosition== null) {
+              
+            }else{
+              <Marker icon={{ url: require('./icon.png')}}  position={currentPosition}/>
+            }
+            <DirectionsRenderer directions={direction} />
+            
+            
          {
             locations.map(item => {
               return (
@@ -90,6 +178,7 @@ const [ selected, setSelected ] = useState({});
               )
             })
          }
+        
         {
             selected.location && 
             (
@@ -104,6 +193,7 @@ const [ selected, setSelected ] = useState({});
          }
      </GoogleMap>
      </LoadScript>
+     </div>
   )
 }
 

@@ -1,0 +1,20 @@
+@import '../variables';
+
+.map{
+    width: 90%;
+    margin: 0px auto;
+    padding: 40px;
+}
+.content__title_2{
+    font-weight: 800;
+    font-size: 38px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+.map_info{
+    display: flex;
+}
+.map_distance{
+    width: 700px;
+    height: 100px;
+}

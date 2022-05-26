@@ -10,7 +10,10 @@ const [ selected, setSelected ] = useState({});
 
   const mapStyles = {        
     height: "100vh",
-    width: "100%"};
+    width: "100%",
+    boxShadow: "1px 0px 15px 0px #000000bd",
+    borderRadius: "19px"
+  };
   
   const defaultCenter = {
     lat: 48.494183918654095, lng: 35.06661888513518
@@ -69,6 +72,7 @@ const [ selected, setSelected ] = useState({});
   ];
 
   return (
+    
      <LoadScript
        googleMapsApiKey='AIzaSyAPgqAVnXgH9OhdUcQWBm-oxiodDZv8moA'>
         <GoogleMap

@@ -51,31 +51,31 @@ const Home: React.FC = () => {
 
   // Если изменили параметры и был первый рендер
   React.useEffect(() => {
-    if (isMounted.current) {
-      const params = {
-        categoryId: categoryId > 0 ? categoryId : null,
-        sortProperty: sort.sortProperty,
-        currentPage,
-      };
+    // if (isMounted.current) {
+    //   const params = {
+    //     categoryId: categoryId > 0 ? categoryId : null,
+    //     sortProperty: sort.sortProperty,
+    //     currentPage,
+    //   };
 
-      const queryString = qs.stringify(params, { skipNulls: true });
+    //   const queryString = qs.stringify(params, { skipNulls: true });
 
-      navigate(`/?${queryString}`);
-    }
+    //   navigate(`/?${queryString}`);
+    // }
 
-    const params = qs.parse(window.location.search.substring(1)) as unknown as SearchPizzaParams;
-    const sortObj = sortList.find((obj) => obj.sortProperty === params.sortBy);
-    dispatch(
-      setFilters({
-        searchValue: params.search,
-        categoryId: Number(params.category),
-        currentPage: Number(params.currentPage),
-        sort: sortObj || sortList[0],
-      }),
-    );
+    // const params = qs.parse(window.location.search.substring(1)) as unknown as SearchPizzaParams;
+    // const sortObj = sortList.find((obj) => obj.sortProperty === params.sortBy);
+    // dispatch(
+    //   setFilters({
+    //     searchValue: params.search,
+    //     categoryId: Number(params.category),
+    //     currentPage: Number(params.currentPage),
+    //     sort: sortObj || sortList[0],
+    //   }),
+    // );
 
     getPizzas();
-    isMounted.current = true;
+    // isMounted.current = true;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   // Парсим параметры при первом рендере
@@ -104,11 +104,11 @@ const Home: React.FC = () => {
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort value={sort} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">Усі піци</h2>
       {status === 'error' ? (
         <div className="content__error-info">
-          <h2>Произошла ошибка 😕</h2>
-          <p>К сожалению, не удалось получить питсы. Попробуйте повторить попытку позже.</p>
+          <h2>Виникла помилка 😕</h2>
+          <p>На жаль, не вдалося отримати пітси. Спробуйте повторити спробу пізніше.</p>
         </div>
       ) : (
         <div className="content__items">{status === 'loading' ? skeletons : pizzas}</div>

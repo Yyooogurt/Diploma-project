@@ -10,7 +10,7 @@ body {
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;
-  background-color: #a3d9ac;
+  background-color: #ffff;
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
@@ -197,6 +197,7 @@ body {
       img {
         width: 80px;
         height: 80px;
+        border-radius: 13px
       }
     }
 
@@ -406,4 +407,42 @@ body {
       font-size: 18px;
     }
   }
+}
+
+.bottom_logo img{
+  display: block;
+  margin-bottom: 28px;
+}
+.bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.block_2{
+  text-align: center;
+}
+.block_2 h4{
+  margin-bottom: 30px;
+}
+.logo_pay{
+  width: 180px;
+}
+.block_3{
+  text-align: center;
+}
+.block_3 h4{
+  margin-bottom: 30px;
+}
+.social{
+  width: 37px;
+}
+.social_instagram{
+  margin-right: 35px;
+}
+.block_4{
+  text-align: center;
+}
+.block_4{
+}
+.block_4 h4{
+  margin-bottom: 30px;
 }

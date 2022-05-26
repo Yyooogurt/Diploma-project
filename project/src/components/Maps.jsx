@@ -151,9 +151,9 @@ const getLocation = () => {
           <button onClick={getLocation}>Моя геолокація</button>
           <button onClick={getDirection}>Прокласти маршруту</button>
       </div>
-      
+      git 
      <LoadScript
-       googleMapsApiKey='AIzaSyAPgqAVnXgH9OhdUcQWBm-oxiodDZv8moA'>
+       googleMapsApiKey=''>
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={13}

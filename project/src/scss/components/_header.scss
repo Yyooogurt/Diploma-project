@@ -3,7 +3,9 @@
 .header {
   border-bottom: 1px solid $gray-line;
   padding: 40px 0;
-
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: rgb(0 0 0 / 44%) 0px 0px 6px 0px;
   .container {
     display: flex;
     align-items: center;
@@ -19,7 +21,6 @@
   }
 
   &__logo {
-    align-items: center;
     display: flex;
 
     img {

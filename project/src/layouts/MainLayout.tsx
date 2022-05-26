@@ -15,6 +15,9 @@ const MainLayout: React.FC = () => {
         <h2 className="content__title_2">Наші точки видачі у місті Дніпро:</h2>
           <MapContainer />
         </div>
+        <div className="bottom">
+          
+        </div>
       </div>
       
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import ContactForm from "../components/Form";
 import { CartItem, CartEmpty } from '../components';
 
 import { selectCart } from '../redux/cart/selectors';
@@ -87,7 +87,6 @@ const Cart: React.FC = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"></path>
             </svg>
-
             <span>Очистити кошик</span>
           </div>
         </div>
@@ -96,11 +95,14 @@ const Cart: React.FC = () => {
             <CartItem key={item.id} {...item} />
           ))}
         </div>
+        <div className="form">
+            <ContactForm />
+        </div>   
         <div className="cart__bottom">
           <div className="cart__bottom-details">
             <span>
               {' '}
-              Всього піц: <b>{totalCount} шт.</b>{' '}
+              Всього піц: <b id='totalCount'>{totalCount} шт.</b>{' '}
             </span>
             <span>
               {' '}
@@ -125,9 +127,9 @@ const Cart: React.FC = () => {
 
               <span>Повернутися назад</span>
             </Link>
-            <div className="button pay-btn">
+            {/* <div className="button pay-btn">
               <span>Сплатити зараз</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,0 +1,58 @@
+@import '../variables';
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form_label{
+    margin-top: 25px;
+    font-size: 22px;
+}
+.form_input{
+    width: 50%;
+    height: 51px;
+    font-size: 20px;
+    border-radius: 11px;
+    border: solid 2px #58c86b;;  
+    padding: 5px;
+}
+.form textarea{
+    width: 50%;
+    font-size: 20px;
+    border-radius: 11px;
+    border: solid 2px #58c86b;;  
+    padding: 5px;
+    height: 100px;
+}
+.form_button{
+    width: 50%;
+    height: 51px;
+    font-size: 20px;
+    border-radius: 11px;
+    margin-top: 25px;
+    border: solid 2px #58c86b;;
+    background:#58c86b;
+    color: #ffff;
+}
+.form_radio input{
+    width: 39px;
+    height: 19px;
+    border: solid 2px #58c86b;
+    height: 23px;
+}
+.form_radio{
+    margin-top: 30px;
+    align-items: center;
+}
+.form p{
+    display: block;
+    margin-top: 35px;
+    font-size: 22px;
+    background: #59c86b;
+    text-align: center;
+    height: 55px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 21px;
+    color: #fff;
+}
